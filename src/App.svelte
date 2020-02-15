@@ -10,7 +10,7 @@
     copied.select();
     copied.setSelectionRange(0, 99999);
     document.execCommand("copy");
-    alert("Copied the text: " + copied.value);
+    /* alert("Copied the text: " + copied.value); */
   }
 </script>
 
@@ -187,7 +187,13 @@
         florinpop17 app-ideas
       </a>
       collection, this is
-      <a href="#">my version</a>
+      <a
+        href="https://github.com/Maja0426/border-radius-previewer"
+        target="_blank"
+        rel="noreferrer"
+        title="Github repo">
+        my version
+      </a>
       .
     </p>
   </div>
@@ -208,7 +214,6 @@
         step="1"
         bind:value={btr}
         title="border-top-right-radius" />
-      <!-- <code>border-top-right-radius: {btr}%</code> -->
     </div>
 
     <div class="slide">
@@ -221,7 +226,6 @@
         step="1"
         bind:value={btl}
         title="border-top-left-radius" />
-      <!-- <code>border-top-left-radius: {btl}%</code> -->
     </div>
 
     <div class="slide">
@@ -234,7 +238,6 @@
         step="1"
         bind:value={bbr}
         title="border-bottom-right-radius" />
-      <!-- <code>border-bottom-right-radius: {bbr}%</code> -->
     </div>
 
     <div class="slide">
@@ -247,7 +250,6 @@
         step="1"
         bind:value={bbl}
         title="border-bottom-left-radius" />
-      <!-- <code>border-bottom-left-radius: {bbl}%</code> -->
     </div>
     <textarea type="text" id="copy-code" rows="6">{copyText}</textarea>
     <button on:click|preventDefault={copied} id="copy">Copy Code</button>
