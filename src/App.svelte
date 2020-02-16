@@ -3,7 +3,15 @@
   let btl = 0;
   let bbr = 0;
   let bbl = 0;
+
   $: copyText = `\nborder-top-right-radius: ${btr}%;\nborder-top-left-radius: ${btl}%;\nborder-bottom-right-radius: ${bbr}%;\nborder-bottom-left-radius: ${bbl}%;\n`;
+
+  function reset() {
+    btr = 0;
+    btl = 0;
+    bbr = 0;
+    bbl = 0;
+  }
 
   function copied() {
     let copied = document.getElementById("copy-code");
@@ -60,7 +68,7 @@
     align-items: center;
     width: 400px;
     height: 400px;
-    background: linear-gradient(to left, #f15120, #f12711);
+    background: linear-gradient(to left, #4b6cc1, #2d4694);
     border: 1px solid #f12711;
   }
 
@@ -102,7 +110,7 @@
   textarea {
     width: 100%;
     background: #333;
-    color: #d3d3d3;
+    color: rgb(255, 239, 239);
     text-align: center;
   }
 
@@ -117,7 +125,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 0 4em;
+    padding: 0 2em;
     margin: 0 auto;
     background: #333;
     color: #d3d3d3;
@@ -134,12 +142,12 @@
     }
 
     .main {
-      width: 300px;
+      width: 450px;
     }
 
     .object {
-      width: 300px;
-      height: 300px;
+      width: 400px;
+      height: 400px;
     }
   }
 
@@ -149,12 +157,16 @@
     }
 
     .main {
-      width: 300px;
+      width: 320px;
     }
 
     .object {
       width: 250px;
       height: 250px;
+    }
+
+    img {
+      margin: 0 0.2em;
     }
   }
 
@@ -164,12 +176,12 @@
     }
 
     .main {
-      width: 200px;
+      width: 300px;
     }
 
     .object {
-      width: 200px;
-      height: 200px;
+      width: 250px;
+      height: 250px;
     }
   }
 </style>
@@ -204,6 +216,7 @@
       border-bottom-right-radius: {bbr}%; border-bottom-left-radius: {bbl}%">
       <div class="original" />
     </div>
+    <button on:click={reset}>Reset</button>
     <div class="slide">
       <input
         class="slider"
@@ -263,7 +276,7 @@
       href="https://www.linkedin.com/in/majoros-tamas/"
       target="_blank"
       rel="noreferrer">
-      <img src="./linkedin.svg" alt="facebook logo" />
+      <img src="./linkedin.svg" alt="linkedin logo" />
     </a>
     <a href="https://twitter.com/tmajoros" target="_blank" rel="noreferrer">
       <img src="../twitter.svg" alt="twitter logo" />
