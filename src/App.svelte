@@ -216,8 +216,8 @@
     <p>
       Border Radius Previewer,
       <a
-        href="https://github.com/florinpop17/app-ideas"
-        title="https://github.com/florinpop17/app-ideas"
+        href="https://github.com/florinpop17/app-ideas/blob/master/Projects/1-Beginner/Border-Radius-Previewer.md"
+        title="app-ideas/Projects/1-Beginner/Border-Radius-Previewer.md"
         target="_blank"
         rel="noreferrer">
         florinpop17 app-ideas
