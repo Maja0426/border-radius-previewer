@@ -24,13 +24,10 @@
 
 <style>
   main {
-    min-height: 93vh;
-    position: relative;
+    min-height: 100vh;
     text-align: center;
     background-color: #ffffff;
     color: #333;
-    margin: 0;
-    box-sizing: border-box;
   }
 
   h1 {
@@ -41,35 +38,38 @@
     margin-bottom: 0;
   }
 
-  .main {
+  .wrapper {
     display: flex;
-    flex-direction: column;
-    width: 400px;
-    margin: 0 auto 2em;
     justify-content: center;
-    align-items: center;
   }
 
-  .original {
-    position: absolute;
-    left: -1px;
-    top: -1px;
-    width: 100%;
-    height: 100%;
-    border: 1px dashed #f12711;
+  section {
+    display: flex;
+    flex-direction: column;
+    padding: 2em;
+    justify-content: center;
+    align-items: center;
   }
 
   .object {
-    position: relative;
-    padding: 0;
-    margin: 1rem;
     display: flex;
+    flex-direction: column;
+    /* width: 30vw;
+    height: 30vw; */
+    min-width: 450px;
+    min-height: 450px;
     justify-content: center;
     align-items: center;
-    width: 400px;
-    height: 400px;
     background: linear-gradient(to left, #4b6cc1, #2d4694);
-    border: 1px solid #f12711;
+  }
+
+  .controller {
+    display: flex;
+    flex-direction: column;
+    min-width: 30vw;
+    min-height: 30vw;
+    justify-content: center;
+    align-items: center;
   }
 
   .slide {
@@ -109,6 +109,7 @@
 
   textarea {
     width: 100%;
+    min-height: 120px;
     background: #333;
     color: #ffefef;
     text-align: center;
@@ -121,7 +122,7 @@
   }
 
   footer {
-    min-height: 7vh;
+    /* min-height: 7vh; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -136,18 +137,24 @@
     margin: 0 1em;
   }
 
-  @media (max-width: 640px) {
+  @media (max-width: 768px) {
     h1 {
       font-size: 2em;
     }
 
-    .main {
-      width: 450px;
+    section {
+      padding-bottom: 0;
     }
 
-    .object {
-      width: 400px;
-      height: 400px;
+    .wrapper {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .controller {
+      min-width: 450px;
+      min-height: 450px;
     }
   }
 
@@ -156,13 +163,19 @@
       font-size: 2em;
     }
 
-    .main {
-      width: 320px;
+    .controller {
+      margin-top: 1em;
+      min-width: 300px;
+      min-height: 300px;
     }
 
     .object {
-      width: 250px;
-      height: 250px;
+      min-width: 300px;
+      min-height: 300px;
+    }
+
+    section {
+      padding: 0;
     }
 
     img {
@@ -174,20 +187,12 @@
     h1 {
       font-size: 1.8em;
     }
-
-    .main {
-      width: 300px;
-    }
-
-    .object {
-      width: 250px;
-      height: 250px;
-    }
   }
 </style>
 
 <main>
-  <div>
+
+  <div class="header">
     <h1>Border Radius Previewer</h1>
     <p>
       Border Radius Previewer,
@@ -209,64 +214,69 @@
       .
     </p>
   </div>
-  <section class="main">
-    <div
-      class="object"
-      style="border-top-right-radius: {btr}%; border-top-left-radius: {btl}%;
-      border-bottom-right-radius: {bbr}%; border-bottom-left-radius: {bbl}%">
-      <div class="original" />
-    </div>
-    <div class="slide">
-      <input
-        class="slider"
-        type="range"
-        min="0"
-        max="100"
-        id="btr"
-        step="1"
-        bind:value={btr}
-        title="border-top-right-radius" />
-    </div>
 
-    <div class="slide">
-      <input
-        class="slider"
-        type="range"
-        min="0"
-        max="100"
-        id="btl"
-        step="1"
-        bind:value={btl}
-        title="border-top-left-radius" />
-    </div>
+  <div class="wrapper">
+    <section>
+      <div
+        class="object"
+        style="border-top-right-radius: {btr}%; border-top-left-radius: {btl}%;
+        border-bottom-right-radius: {bbr}%; border-bottom-left-radius: {bbl}%" />
+    </section>
+    <section>
+      <div class="controller">
+        <div class="slide">
+          <input
+            class="slider"
+            type="range"
+            min="0"
+            max="100"
+            id="btr"
+            step="1"
+            bind:value={btr}
+            title="border-top-right-radius" />
+        </div>
 
-    <div class="slide">
-      <input
-        class="slider"
-        type="range"
-        min="0"
-        max="100"
-        id="bbr"
-        step="1"
-        bind:value={bbr}
-        title="border-bottom-right-radius" />
-    </div>
+        <div class="slide">
+          <input
+            class="slider"
+            type="range"
+            min="0"
+            max="100"
+            id="btl"
+            step="1"
+            bind:value={btl}
+            title="border-top-left-radius" />
+        </div>
 
-    <div class="slide">
-      <input
-        class="slider"
-        type="range"
-        min="0"
-        max="100"
-        id="bbr"
-        step="1"
-        bind:value={bbl}
-        title="border-bottom-left-radius" />
-    </div>
-    <textarea type="text" id="copy-code" rows="6">{copyText}</textarea>
-    <button on:click|preventDefault={copied} id="copy">Copy Code</button>
-    <button on:click={reset}>Reset</button>
-  </section>
+        <div class="slide">
+          <input
+            class="slider"
+            type="range"
+            min="0"
+            max="100"
+            id="bbr"
+            step="1"
+            bind:value={bbr}
+            title="border-bottom-right-radius" />
+        </div>
+
+        <div class="slide">
+          <input
+            class="slider"
+            type="range"
+            min="0"
+            max="100"
+            id="bbr"
+            step="1"
+            bind:value={bbl}
+            title="border-bottom-left-radius" />
+        </div>
+        <textarea type="text" id="copy-code" rows="6">{copyText}</textarea>
+        <button on:click|preventDefault={copied} id="copy">Copy Code</button>
+        <button on:click={reset}>Reset</button>
+      </div>
+    </section>
+  </div>
 </main>
 
 <footer>
