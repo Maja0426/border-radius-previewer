@@ -132,9 +132,14 @@
     color: #d3d3d3;
   }
 
-  img {
+  footer img {
     width: 4vh;
     margin: 0 1em;
+  }
+
+  .logo {
+    text-align: center;
+    padding: 1em 0;
   }
 
   @media (max-width: 768px) {
@@ -165,20 +170,24 @@
 
     .controller {
       margin-top: 1em;
-      min-width: 300px;
-      min-height: 300px;
+      min-width: 340px;
+      min-height: 340px;
     }
 
     .object {
-      min-width: 300px;
-      min-height: 300px;
+      min-width: 340px;
+      min-height: 340px;
+    }
+
+    .logo img {
+      width: 70px;
     }
 
     section {
       padding: 0;
     }
 
-    img {
+    footer img {
       margin: 0 0.2em;
     }
   }
@@ -186,6 +195,16 @@
   @media (max-width: 320px) {
     h1 {
       font-size: 1.8em;
+    }
+    .controller {
+      margin-top: 1em;
+      min-width: 300px;
+      min-height: 300px;
+    }
+
+    .object {
+      min-width: 300px;
+      min-height: 300px;
     }
   }
 </style>
@@ -276,6 +295,9 @@
         <button on:click={reset}>Reset</button>
       </div>
     </section>
+  </div>
+  <div class="logo">
+    <img src="./svelte_logo.png" alt="svelte logo" />
   </div>
 </main>
 
