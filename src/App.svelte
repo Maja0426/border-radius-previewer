@@ -110,7 +110,7 @@
   textarea {
     width: 100%;
     background: #333;
-    color: rgb(255, 239, 239);
+    color: #ffefef;
     text-align: center;
   }
 
@@ -216,7 +216,6 @@
       border-bottom-right-radius: {bbr}%; border-bottom-left-radius: {bbl}%">
       <div class="original" />
     </div>
-    <button on:click={reset}>Reset</button>
     <div class="slide">
       <input
         class="slider"
@@ -266,6 +265,7 @@
     </div>
     <textarea type="text" id="copy-code" rows="6">{copyText}</textarea>
     <button on:click|preventDefault={copied} id="copy">Copy Code</button>
+    <button on:click={reset}>Reset</button>
   </section>
 </main>
 
