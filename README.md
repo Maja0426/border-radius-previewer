@@ -8,7 +8,7 @@ This is a small [Svelte](https://svelte.dev) apps. Original idea: https://github
 
 © Tamas Majoros
 
-Licensed under MIT Licnse.
+Licensed under MIT License.
 
 ------
 
